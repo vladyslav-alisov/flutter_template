@@ -1,0 +1,26 @@
+import 'package:dio/dio.dart';
+import 'package:template/utils/app_config.dart';
+
+class QuotesApiClient {
+  QuotesApiClient._();
+  static final QuotesApiClient instance = QuotesApiClient._();
+
+  static const Duration _connectTimeout = Duration(seconds: 25);
+  static final AppConfig _appConfig = AppConfig.instance;
+
+  Dio get dio => _dio;
+
+  final Dio _dio = Dio(
+    BaseOptions(
+      connectTimeout: _connectTimeout,
+      receiveTimeout: _connectTimeout,
+      headers: {
+        "Content-type": "application/json",
+        "Accept": "application/json",
+        'X-RapidAPI-Key': _appConfig.quoteApiKey,
+        'X-RapidAPI-Host': _appConfig.quoteApiHost,
+      },
+      baseUrl: _appConfig.quoteBaseUrl,
+    ),
+  );
+}
