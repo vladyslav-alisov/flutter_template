@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'quote_local_entity.dart';
+part of 'quote_db_entity.dart';
 
 // **************************************************************************
 // IsarCollectionGenerator
@@ -9,13 +9,13 @@ part of 'quote_local_entity.dart';
 // coverage:ignore-file
 // ignore_for_file: duplicate_ignore, non_constant_identifier_names, constant_identifier_names, invalid_use_of_protected_member, unnecessary_cast, prefer_const_constructors, lines_longer_than_80_chars, require_trailing_commas, inference_failure_on_function_invocation, unnecessary_parenthesis, unnecessary_raw_strings, unnecessary_null_checks, join_return_with_assignment, prefer_final_locals, avoid_js_rounded_ints, avoid_positional_boolean_parameters, always_specify_types
 
-extension GetQuoteLocalEntityCollection on Isar {
-  IsarCollection<QuoteLocalEntity> get quoteLocalEntitys => this.collection();
+extension GetQuoteDBEntityCollection on Isar {
+  IsarCollection<QuoteDBEntity> get quoteDBEntitys => this.collection();
 }
 
-const QuoteLocalEntitySchema = CollectionSchema(
-  name: r'QuoteLocalEntity',
-  id: -8792611182710613909,
+const QuoteDBEntitySchema = CollectionSchema(
+  name: r'QuoteDBEntity',
+  id: -3401336965517695482,
   properties: {
     r'author': PropertySchema(
       id: 0,
@@ -38,22 +38,22 @@ const QuoteLocalEntitySchema = CollectionSchema(
       type: IsarType.string,
     )
   },
-  estimateSize: _quoteLocalEntityEstimateSize,
-  serialize: _quoteLocalEntitySerialize,
-  deserialize: _quoteLocalEntityDeserialize,
-  deserializeProp: _quoteLocalEntityDeserializeProp,
+  estimateSize: _quoteDBEntityEstimateSize,
+  serialize: _quoteDBEntitySerialize,
+  deserialize: _quoteDBEntityDeserialize,
+  deserializeProp: _quoteDBEntityDeserializeProp,
   idName: r'quoteId',
   indexes: {},
   links: {},
   embeddedSchemas: {},
-  getId: _quoteLocalEntityGetId,
-  getLinks: _quoteLocalEntityGetLinks,
-  attach: _quoteLocalEntityAttach,
+  getId: _quoteDBEntityGetId,
+  getLinks: _quoteDBEntityGetLinks,
+  attach: _quoteDBEntityAttach,
   version: '3.1.0+1',
 );
 
-int _quoteLocalEntityEstimateSize(
-  QuoteLocalEntity object,
+int _quoteDBEntityEstimateSize(
+  QuoteDBEntity object,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
@@ -64,8 +64,8 @@ int _quoteLocalEntityEstimateSize(
   return bytesCount;
 }
 
-void _quoteLocalEntitySerialize(
-  QuoteLocalEntity object,
+void _quoteDBEntitySerialize(
+  QuoteDBEntity object,
   IsarWriter writer,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
@@ -76,13 +76,13 @@ void _quoteLocalEntitySerialize(
   writer.writeString(offsets[3], object.quote);
 }
 
-QuoteLocalEntity _quoteLocalEntityDeserialize(
+QuoteDBEntity _quoteDBEntityDeserialize(
   Id id,
   IsarReader reader,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  final object = QuoteLocalEntity(
+  final object = QuoteDBEntity(
     author: reader.readString(offsets[0]),
     createdAt: reader.readDateTime(offsets[1]),
     languageCode: reader.readString(offsets[2]),
@@ -91,7 +91,7 @@ QuoteLocalEntity _quoteLocalEntityDeserialize(
   return object;
 }
 
-P _quoteLocalEntityDeserializeProp<P>(
+P _quoteDBEntityDeserializeProp<P>(
   IsarReader reader,
   int propertyId,
   int offset,
@@ -111,30 +111,30 @@ P _quoteLocalEntityDeserializeProp<P>(
   }
 }
 
-Id _quoteLocalEntityGetId(QuoteLocalEntity object) {
+Id _quoteDBEntityGetId(QuoteDBEntity object) {
   return object.quoteId;
 }
 
-List<IsarLinkBase<dynamic>> _quoteLocalEntityGetLinks(QuoteLocalEntity object) {
+List<IsarLinkBase<dynamic>> _quoteDBEntityGetLinks(QuoteDBEntity object) {
   return [];
 }
 
-void _quoteLocalEntityAttach(
-    IsarCollection<dynamic> col, Id id, QuoteLocalEntity object) {}
+void _quoteDBEntityAttach(
+    IsarCollection<dynamic> col, Id id, QuoteDBEntity object) {}
 
-extension QuoteLocalEntityQueryWhereSort
-    on QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QWhere> {
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterWhere> anyQuoteId() {
+extension QuoteDBEntityQueryWhereSort
+    on QueryBuilder<QuoteDBEntity, QuoteDBEntity, QWhere> {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterWhere> anyQuoteId() {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(const IdWhereClause.any());
     });
   }
 }
 
-extension QuoteLocalEntityQueryWhere
-    on QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QWhereClause> {
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterWhereClause>
-      quoteIdEqualTo(Id quoteId) {
+extension QuoteDBEntityQueryWhere
+    on QueryBuilder<QuoteDBEntity, QuoteDBEntity, QWhereClause> {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterWhereClause> quoteIdEqualTo(
+      Id quoteId) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(IdWhereClause.between(
         lower: quoteId,
@@ -143,7 +143,7 @@ extension QuoteLocalEntityQueryWhere
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterWhereClause>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterWhereClause>
       quoteIdNotEqualTo(Id quoteId) {
     return QueryBuilder.apply(this, (query) {
       if (query.whereSort == Sort.asc) {
@@ -166,7 +166,7 @@ extension QuoteLocalEntityQueryWhere
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterWhereClause>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterWhereClause>
       quoteIdGreaterThan(Id quoteId, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(
@@ -175,8 +175,9 @@ extension QuoteLocalEntityQueryWhere
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterWhereClause>
-      quoteIdLessThan(Id quoteId, {bool include = false}) {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterWhereClause> quoteIdLessThan(
+      Id quoteId,
+      {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(
         IdWhereClause.lessThan(upper: quoteId, includeUpper: include),
@@ -184,8 +185,7 @@ extension QuoteLocalEntityQueryWhere
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterWhereClause>
-      quoteIdBetween(
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterWhereClause> quoteIdBetween(
     Id lowerQuoteId,
     Id upperQuoteId, {
     bool includeLower = true,
@@ -202,9 +202,9 @@ extension QuoteLocalEntityQueryWhere
   }
 }
 
-extension QuoteLocalEntityQueryFilter
-    on QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QFilterCondition> {
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+extension QuoteDBEntityQueryFilter
+    on QueryBuilder<QuoteDBEntity, QuoteDBEntity, QFilterCondition> {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       authorEqualTo(
     String value, {
     bool caseSensitive = true,
@@ -218,7 +218,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       authorGreaterThan(
     String value, {
     bool include = false,
@@ -234,7 +234,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       authorLessThan(
     String value, {
     bool include = false,
@@ -250,7 +250,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       authorBetween(
     String lower,
     String upper, {
@@ -270,7 +270,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       authorStartsWith(
     String value, {
     bool caseSensitive = true,
@@ -284,7 +284,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       authorEndsWith(
     String value, {
     bool caseSensitive = true,
@@ -298,7 +298,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       authorContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
@@ -309,7 +309,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       authorMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
@@ -320,7 +320,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       authorIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -330,7 +330,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       authorIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
@@ -340,7 +340,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       createdAtEqualTo(DateTime value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -350,7 +350,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       createdAtGreaterThan(
     DateTime value, {
     bool include = false,
@@ -364,7 +364,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       createdAtLessThan(
     DateTime value, {
     bool include = false,
@@ -378,7 +378,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       createdAtBetween(
     DateTime lower,
     DateTime upper, {
@@ -396,7 +396,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       languageCodeEqualTo(
     String value, {
     bool caseSensitive = true,
@@ -410,7 +410,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       languageCodeGreaterThan(
     String value, {
     bool include = false,
@@ -426,7 +426,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       languageCodeLessThan(
     String value, {
     bool include = false,
@@ -442,7 +442,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       languageCodeBetween(
     String lower,
     String upper, {
@@ -462,7 +462,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       languageCodeStartsWith(
     String value, {
     bool caseSensitive = true,
@@ -476,7 +476,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       languageCodeEndsWith(
     String value, {
     bool caseSensitive = true,
@@ -490,7 +490,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       languageCodeContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
@@ -501,7 +501,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       languageCodeMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
@@ -512,7 +512,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       languageCodeIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -522,7 +522,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       languageCodeIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
@@ -532,7 +532,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       quoteEqualTo(
     String value, {
     bool caseSensitive = true,
@@ -546,7 +546,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       quoteGreaterThan(
     String value, {
     bool include = false,
@@ -562,7 +562,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       quoteLessThan(
     String value, {
     bool include = false,
@@ -578,7 +578,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       quoteBetween(
     String lower,
     String upper, {
@@ -598,7 +598,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       quoteStartsWith(
     String value, {
     bool caseSensitive = true,
@@ -612,7 +612,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       quoteEndsWith(
     String value, {
     bool caseSensitive = true,
@@ -626,7 +626,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       quoteContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
@@ -637,7 +637,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       quoteMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
@@ -648,7 +648,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       quoteIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -658,7 +658,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       quoteIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
@@ -668,7 +668,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       quoteIdEqualTo(Id value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -678,7 +678,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       quoteIdGreaterThan(
     Id value, {
     bool include = false,
@@ -692,7 +692,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       quoteIdLessThan(
     Id value, {
     bool include = false,
@@ -706,7 +706,7 @@ extension QuoteLocalEntityQueryFilter
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterFilterCondition>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterFilterCondition>
       quoteIdBetween(
     Id lower,
     Id upper, {
@@ -725,166 +725,155 @@ extension QuoteLocalEntityQueryFilter
   }
 }
 
-extension QuoteLocalEntityQueryObject
-    on QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QFilterCondition> {}
+extension QuoteDBEntityQueryObject
+    on QueryBuilder<QuoteDBEntity, QuoteDBEntity, QFilterCondition> {}
 
-extension QuoteLocalEntityQueryLinks
-    on QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QFilterCondition> {}
+extension QuoteDBEntityQueryLinks
+    on QueryBuilder<QuoteDBEntity, QuoteDBEntity, QFilterCondition> {}
 
-extension QuoteLocalEntityQuerySortBy
-    on QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QSortBy> {
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterSortBy>
-      sortByAuthor() {
+extension QuoteDBEntityQuerySortBy
+    on QueryBuilder<QuoteDBEntity, QuoteDBEntity, QSortBy> {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterSortBy> sortByAuthor() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'author', Sort.asc);
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterSortBy>
-      sortByAuthorDesc() {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterSortBy> sortByAuthorDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'author', Sort.desc);
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterSortBy>
-      sortByCreatedAt() {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterSortBy> sortByCreatedAt() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'createdAt', Sort.asc);
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterSortBy>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterSortBy>
       sortByCreatedAtDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'createdAt', Sort.desc);
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterSortBy>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterSortBy>
       sortByLanguageCode() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'languageCode', Sort.asc);
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterSortBy>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterSortBy>
       sortByLanguageCodeDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'languageCode', Sort.desc);
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterSortBy> sortByQuote() {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterSortBy> sortByQuote() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'quote', Sort.asc);
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterSortBy>
-      sortByQuoteDesc() {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterSortBy> sortByQuoteDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'quote', Sort.desc);
     });
   }
 }
 
-extension QuoteLocalEntityQuerySortThenBy
-    on QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QSortThenBy> {
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterSortBy>
-      thenByAuthor() {
+extension QuoteDBEntityQuerySortThenBy
+    on QueryBuilder<QuoteDBEntity, QuoteDBEntity, QSortThenBy> {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterSortBy> thenByAuthor() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'author', Sort.asc);
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterSortBy>
-      thenByAuthorDesc() {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterSortBy> thenByAuthorDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'author', Sort.desc);
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterSortBy>
-      thenByCreatedAt() {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterSortBy> thenByCreatedAt() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'createdAt', Sort.asc);
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterSortBy>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterSortBy>
       thenByCreatedAtDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'createdAt', Sort.desc);
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterSortBy>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterSortBy>
       thenByLanguageCode() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'languageCode', Sort.asc);
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterSortBy>
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterSortBy>
       thenByLanguageCodeDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'languageCode', Sort.desc);
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterSortBy> thenByQuote() {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterSortBy> thenByQuote() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'quote', Sort.asc);
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterSortBy>
-      thenByQuoteDesc() {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterSortBy> thenByQuoteDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'quote', Sort.desc);
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterSortBy>
-      thenByQuoteId() {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterSortBy> thenByQuoteId() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'quoteId', Sort.asc);
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QAfterSortBy>
-      thenByQuoteIdDesc() {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QAfterSortBy> thenByQuoteIdDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'quoteId', Sort.desc);
     });
   }
 }
 
-extension QuoteLocalEntityQueryWhereDistinct
-    on QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QDistinct> {
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QDistinct> distinctByAuthor(
+extension QuoteDBEntityQueryWhereDistinct
+    on QueryBuilder<QuoteDBEntity, QuoteDBEntity, QDistinct> {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QDistinct> distinctByAuthor(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'author', caseSensitive: caseSensitive);
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QDistinct>
-      distinctByCreatedAt() {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QDistinct> distinctByCreatedAt() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'createdAt');
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QDistinct>
-      distinctByLanguageCode({bool caseSensitive = true}) {
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QDistinct> distinctByLanguageCode(
+      {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'languageCode', caseSensitive: caseSensitive);
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QDistinct> distinctByQuote(
+  QueryBuilder<QuoteDBEntity, QuoteDBEntity, QDistinct> distinctByQuote(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'quote', caseSensitive: caseSensitive);
@@ -892,35 +881,33 @@ extension QuoteLocalEntityQueryWhereDistinct
   }
 }
 
-extension QuoteLocalEntityQueryProperty
-    on QueryBuilder<QuoteLocalEntity, QuoteLocalEntity, QQueryProperty> {
-  QueryBuilder<QuoteLocalEntity, int, QQueryOperations> quoteIdProperty() {
+extension QuoteDBEntityQueryProperty
+    on QueryBuilder<QuoteDBEntity, QuoteDBEntity, QQueryProperty> {
+  QueryBuilder<QuoteDBEntity, int, QQueryOperations> quoteIdProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'quoteId');
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, String, QQueryOperations> authorProperty() {
+  QueryBuilder<QuoteDBEntity, String, QQueryOperations> authorProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'author');
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, DateTime, QQueryOperations>
-      createdAtProperty() {
+  QueryBuilder<QuoteDBEntity, DateTime, QQueryOperations> createdAtProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'createdAt');
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, String, QQueryOperations>
-      languageCodeProperty() {
+  QueryBuilder<QuoteDBEntity, String, QQueryOperations> languageCodeProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'languageCode');
     });
   }
 
-  QueryBuilder<QuoteLocalEntity, String, QQueryOperations> quoteProperty() {
+  QueryBuilder<QuoteDBEntity, String, QQueryOperations> quoteProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'quote');
     });
