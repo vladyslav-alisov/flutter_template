@@ -4,12 +4,7 @@
     "description": "The conventional newborn programmer greeting"
   },
 
-  "helloIsNotThisAWonderfulDay": "Hello! '{Isn''t}' this a wonderful day?",
-  "@helloIsNotThisAWonderfulDay": {
-    "description": "A message with use-escaping=true to display brackets {}"
-  },
-
-  "hello": "Hello {userName}",
+  "hello": "Hello {userName}!",
   "@hello": {
     "description": "A message with a single parameter",
     "placeholders": {

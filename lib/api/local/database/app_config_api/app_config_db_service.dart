@@ -6,8 +6,7 @@ class AppConfigDBService {
   final DatabaseClient _dbService = DatabaseClient.instance;
 
   Future<AppConfigDBEntity?> getAppConfig() async {
-    AppConfigDBEntity? appConfigDBEntity =
-        await _dbService.db.appConfigDBEntitys.filter().languageCodeIsNotEmpty().findFirst();
+    AppConfigDBEntity? appConfigDBEntity = await _dbService.db.appConfigDBEntitys.where().findFirst();
     return appConfigDBEntity;
   }
 

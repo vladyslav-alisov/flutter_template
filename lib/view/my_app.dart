@@ -1,8 +1,9 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:template/main.dart';
 import 'package:template/models/app_config/app_config.dart';
-import 'package:template/providers/app_config_provider.dart';
+import 'package:template/models/app_info/app_info.dart';
+import 'package:template/providers/app_provider.dart';
 import 'package:template/repositories/app_repository.dart';
 import 'home_screen/home_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -12,10 +13,12 @@ class MyApp extends StatefulWidget {
   const MyApp({
     super.key,
     required this.initConfig,
+    required this.appInfo,
     required this.appRepository,
   });
 
   final AppConfig initConfig;
+  final AppInfo appInfo;
   final AppRepository appRepository;
   @override
   State<MyApp> createState() => _MyAppState();
@@ -26,17 +29,20 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<AppConfigProvider>(
-          create: (_) => AppConfigProvider(
+        ChangeNotifierProvider<AppProvider>(
+          create: (_) => AppProvider(
             widget.initConfig,
+            widget.appInfo,
             widget.appRepository,
           ),
         ),
       ],
-      child: Consumer<AppConfigProvider>(
+      child: Consumer<AppProvider>(
         builder: (context, appConfigProvider, child) => MaterialApp(
-          title: 'Flutter Demo',
-          locale: appConfigProvider.appConfig.locale,
+          locale: appConfigProvider.appLocale,
+          theme: FlexThemeData.light(scheme: FlexScheme.mandyRed),
+          darkTheme: FlexThemeData.dark(scheme: FlexScheme.mandyRed),
+          themeMode: appConfigProvider.isDarkTheme ? ThemeMode.dark : ThemeMode.light,
           home: const MyHomePage(title: 'Flutter Demo Home Page'),
           localizationsDelegates: const [
             AppLocalizations.delegate,

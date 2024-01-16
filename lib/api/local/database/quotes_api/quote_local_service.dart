@@ -7,7 +7,7 @@ class QuoteLocalService {
 
   Future<QuoteDBEntity?> getQuoteByLanguageCode(String languageCode) async {
     QuoteDBEntity? todayQuote =
-        await _dbService.db.quoteDBEntitys.filter().languageCodeEqualTo(languageCode).findFirst();
+        await _dbService.db.quoteDBEntitys.where().findFirst();
     return todayQuote;
   }
 
