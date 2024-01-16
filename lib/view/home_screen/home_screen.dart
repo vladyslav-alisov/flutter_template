@@ -4,16 +4,14 @@ import 'package:provider/provider.dart';
 import 'package:template/l10n/translate_extension.dart';
 import 'package:template/providers/app_provider.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomeScreenState extends State<HomeScreen> {
   final List<Locale> _supportedLocales = [];
   bool _isLoading = false;
 

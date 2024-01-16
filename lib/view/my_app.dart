@@ -5,6 +5,7 @@ import 'package:template/models/app_config/app_config.dart';
 import 'package:template/models/app_info/app_info.dart';
 import 'package:template/providers/app_provider.dart';
 import 'package:template/repositories/app_repository.dart';
+import 'package:template/router/app_router.dart';
 import 'home_screen/home_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -38,12 +39,12 @@ class _MyAppState extends State<MyApp> {
         ),
       ],
       child: Consumer<AppProvider>(
-        builder: (context, appConfigProvider, child) => MaterialApp(
+        builder: (context, appConfigProvider, child) => MaterialApp.router(
+          routerConfig: AppRouter.initRouter(),
           locale: appConfigProvider.appLocale,
           theme: FlexThemeData.light(scheme: FlexScheme.mandyRed),
           darkTheme: FlexThemeData.dark(scheme: FlexScheme.mandyRed),
           themeMode: appConfigProvider.isDarkTheme ? ThemeMode.dark : ThemeMode.light,
-          home: const MyHomePage(title: 'Flutter Demo Home Page'),
           localizationsDelegates: const [
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
