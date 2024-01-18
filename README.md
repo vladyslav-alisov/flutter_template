@@ -1,6 +1,6 @@
-#Flutter template with Provider, GoRouter, Isar DB and Dio packages.
+# Flutter template with Provider, GoRouter, Isar DB and Dio packages.
 
-#To start
+## To start
 
 Clone this project
 
