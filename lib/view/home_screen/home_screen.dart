@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
-  _onDarkModePress(bool newValue) async {
+  _onThemeModePress(ThemeMode newValue) async {
     if (_isLoading) return;
     _isLoading = true;
     try {
@@ -61,9 +61,13 @@ class _HomeScreenState extends State<HomeScreen> {
             Consumer<AppProvider>(
               builder: (BuildContext context, AppProvider value, Widget? child) => Column(
                 children: [
-                  Switch(
-                    value: value.isDarkTheme,
-                    onChanged: _onDarkModePress,
+                  ...List.generate(
+                    ThemeMode.values.length,
+                    (index) => ChoiceChip(
+                      label: Text(ThemeMode.values[index].name),
+                      onSelected: (value) => _onThemeModePress(ThemeMode.values[index]),
+                      selected: ThemeMode.values[index] == value.themeMode,
+                    ),
                   ),
                   ...List.generate(
                     _supportedLocales.length,
@@ -72,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       onSelected: (value) => _onLanguageSelect(_supportedLocales[index]),
                       selected: _supportedLocales[index].languageCode == value.appLocale.languageCode,
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

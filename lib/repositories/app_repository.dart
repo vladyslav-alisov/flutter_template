@@ -24,8 +24,8 @@ class AppRepository {
       return AppConfigMapper.fromAppConfigDBEntityToAppConfig(appConfigDBEntity);
     } else {
       Locale initLocale = _getInitLocale();
-      bool isDarkMode = _isDefaultDarkMode();
-      AppConfig newAppConfig = AppConfig(true, initLocale, isDarkMode);
+      ThemeMode themeMode = ThemeMode.system;
+      AppConfig newAppConfig = AppConfig(true, initLocale, themeMode);
       AppConfig updatedAppConfig = await updateAppConfig(newAppConfig);
       return updatedAppConfig;
     }
@@ -37,11 +37,6 @@ class AppRepository {
     Locale systemLocale = Locale(systemLang.split("_").first);
     bool isSupported = AppLocalizations.delegate.isSupported(systemLocale);
     return isSupported ? systemLocale : AppLocalizations.supportedLocales.first;
-  }
-
-  /// Checks system prefs
-  bool _isDefaultDarkMode() {
-    return SchedulerBinding.instance.platformDispatcher.platformBrightness == Brightness.dark;
   }
 
   Future<AppConfig> updateAppConfig(AppConfig appConfig) async {

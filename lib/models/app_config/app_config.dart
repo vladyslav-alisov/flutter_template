@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppConfig {
   final Locale locale;
   final bool isFirstLaunch;
-  final bool isDarkTheme;
+  final ThemeMode themeMode;
 
-  AppConfig(this.isFirstLaunch, this.locale, this.isDarkTheme);
+  AppConfig(this.isFirstLaunch, this.locale, this.themeMode);
 }

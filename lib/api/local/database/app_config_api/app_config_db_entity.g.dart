@@ -22,20 +22,21 @@ const AppConfigDBEntitySchema = CollectionSchema(
       name: r'countryCode',
       type: IsarType.string,
     ),
-    r'isDarkTheme': PropertySchema(
-      id: 1,
-      name: r'isDarkTheme',
-      type: IsarType.bool,
-    ),
     r'isFirstLaunch': PropertySchema(
-      id: 2,
+      id: 1,
       name: r'isFirstLaunch',
       type: IsarType.bool,
     ),
     r'languageCode': PropertySchema(
-      id: 3,
+      id: 2,
       name: r'languageCode',
       type: IsarType.string,
+    ),
+    r'themeMode': PropertySchema(
+      id: 3,
+      name: r'themeMode',
+      type: IsarType.byte,
+      enumMap: _AppConfigDBEntitythemeModeEnumValueMap,
     )
   },
   estimateSize: _appConfigDBEntityEstimateSize,
@@ -75,9 +76,9 @@ void _appConfigDBEntitySerialize(
   Map<Type, List<int>> allOffsets,
 ) {
   writer.writeString(offsets[0], object.countryCode);
-  writer.writeBool(offsets[1], object.isDarkTheme);
-  writer.writeBool(offsets[2], object.isFirstLaunch);
-  writer.writeString(offsets[3], object.languageCode);
+  writer.writeBool(offsets[1], object.isFirstLaunch);
+  writer.writeString(offsets[2], object.languageCode);
+  writer.writeByte(offsets[3], object.themeMode.index);
 }
 
 AppConfigDBEntity _appConfigDBEntityDeserialize(
@@ -87,10 +88,12 @@ AppConfigDBEntity _appConfigDBEntityDeserialize(
   Map<Type, List<int>> allOffsets,
 ) {
   final object = AppConfigDBEntity(
-    reader.readString(offsets[3]),
+    reader.readString(offsets[2]),
     reader.readStringOrNull(offsets[0]),
-    reader.readBool(offsets[2]),
     reader.readBool(offsets[1]),
+    _AppConfigDBEntitythemeModeValueEnumMap[
+            reader.readByteOrNull(offsets[3])] ??
+        ThemeMode.system,
   );
   return object;
 }
@@ -107,13 +110,26 @@ P _appConfigDBEntityDeserializeProp<P>(
     case 1:
       return (reader.readBool(offset)) as P;
     case 2:
-      return (reader.readBool(offset)) as P;
-    case 3:
       return (reader.readString(offset)) as P;
+    case 3:
+      return (_AppConfigDBEntitythemeModeValueEnumMap[
+              reader.readByteOrNull(offset)] ??
+          ThemeMode.system) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
   }
 }
+
+const _AppConfigDBEntitythemeModeEnumValueMap = {
+  'system': 0,
+  'light': 1,
+  'dark': 2,
+};
+const _AppConfigDBEntitythemeModeValueEnumMap = {
+  0: ThemeMode.system,
+  1: ThemeMode.light,
+  2: ThemeMode.dark,
+};
 
 Id _appConfigDBEntityGetId(AppConfigDBEntity object) {
   return object.localeId;
@@ -365,16 +381,6 @@ extension AppConfigDBEntityQueryFilter
   }
 
   QueryBuilder<AppConfigDBEntity, AppConfigDBEntity, QAfterFilterCondition>
-      isDarkThemeEqualTo(bool value) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'isDarkTheme',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<AppConfigDBEntity, AppConfigDBEntity, QAfterFilterCondition>
       isFirstLaunchEqualTo(bool value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -575,6 +581,62 @@ extension AppConfigDBEntityQueryFilter
       ));
     });
   }
+
+  QueryBuilder<AppConfigDBEntity, AppConfigDBEntity, QAfterFilterCondition>
+      themeModeEqualTo(ThemeMode value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'themeMode',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<AppConfigDBEntity, AppConfigDBEntity, QAfterFilterCondition>
+      themeModeGreaterThan(
+    ThemeMode value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'themeMode',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<AppConfigDBEntity, AppConfigDBEntity, QAfterFilterCondition>
+      themeModeLessThan(
+    ThemeMode value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'themeMode',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<AppConfigDBEntity, AppConfigDBEntity, QAfterFilterCondition>
+      themeModeBetween(
+    ThemeMode lower,
+    ThemeMode upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'themeMode',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+      ));
+    });
+  }
 }
 
 extension AppConfigDBEntityQueryObject
@@ -596,20 +658,6 @@ extension AppConfigDBEntityQuerySortBy
       sortByCountryCodeDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'countryCode', Sort.desc);
-    });
-  }
-
-  QueryBuilder<AppConfigDBEntity, AppConfigDBEntity, QAfterSortBy>
-      sortByIsDarkTheme() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isDarkTheme', Sort.asc);
-    });
-  }
-
-  QueryBuilder<AppConfigDBEntity, AppConfigDBEntity, QAfterSortBy>
-      sortByIsDarkThemeDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isDarkTheme', Sort.desc);
     });
   }
 
@@ -640,6 +688,20 @@ extension AppConfigDBEntityQuerySortBy
       return query.addSortBy(r'languageCode', Sort.desc);
     });
   }
+
+  QueryBuilder<AppConfigDBEntity, AppConfigDBEntity, QAfterSortBy>
+      sortByThemeMode() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'themeMode', Sort.asc);
+    });
+  }
+
+  QueryBuilder<AppConfigDBEntity, AppConfigDBEntity, QAfterSortBy>
+      sortByThemeModeDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'themeMode', Sort.desc);
+    });
+  }
 }
 
 extension AppConfigDBEntityQuerySortThenBy
@@ -655,20 +717,6 @@ extension AppConfigDBEntityQuerySortThenBy
       thenByCountryCodeDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'countryCode', Sort.desc);
-    });
-  }
-
-  QueryBuilder<AppConfigDBEntity, AppConfigDBEntity, QAfterSortBy>
-      thenByIsDarkTheme() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isDarkTheme', Sort.asc);
-    });
-  }
-
-  QueryBuilder<AppConfigDBEntity, AppConfigDBEntity, QAfterSortBy>
-      thenByIsDarkThemeDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isDarkTheme', Sort.desc);
     });
   }
 
@@ -713,6 +761,20 @@ extension AppConfigDBEntityQuerySortThenBy
       return query.addSortBy(r'localeId', Sort.desc);
     });
   }
+
+  QueryBuilder<AppConfigDBEntity, AppConfigDBEntity, QAfterSortBy>
+      thenByThemeMode() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'themeMode', Sort.asc);
+    });
+  }
+
+  QueryBuilder<AppConfigDBEntity, AppConfigDBEntity, QAfterSortBy>
+      thenByThemeModeDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'themeMode', Sort.desc);
+    });
+  }
 }
 
 extension AppConfigDBEntityQueryWhereDistinct
@@ -721,13 +783,6 @@ extension AppConfigDBEntityQueryWhereDistinct
       distinctByCountryCode({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'countryCode', caseSensitive: caseSensitive);
-    });
-  }
-
-  QueryBuilder<AppConfigDBEntity, AppConfigDBEntity, QDistinct>
-      distinctByIsDarkTheme() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'isDarkTheme');
     });
   }
 
@@ -742,6 +797,13 @@ extension AppConfigDBEntityQueryWhereDistinct
       distinctByLanguageCode({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'languageCode', caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<AppConfigDBEntity, AppConfigDBEntity, QDistinct>
+      distinctByThemeMode() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'themeMode');
     });
   }
 }
@@ -762,13 +824,6 @@ extension AppConfigDBEntityQueryProperty
   }
 
   QueryBuilder<AppConfigDBEntity, bool, QQueryOperations>
-      isDarkThemeProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'isDarkTheme');
-    });
-  }
-
-  QueryBuilder<AppConfigDBEntity, bool, QQueryOperations>
       isFirstLaunchProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'isFirstLaunch');
@@ -779,6 +834,13 @@ extension AppConfigDBEntityQueryProperty
       languageCodeProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'languageCode');
+    });
+  }
+
+  QueryBuilder<AppConfigDBEntity, ThemeMode, QQueryOperations>
+      themeModeProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'themeMode');
     });
   }
 }

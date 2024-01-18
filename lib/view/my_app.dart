@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
           locale: appConfigProvider.appLocale,
           theme: FlexThemeData.light(scheme: FlexScheme.mandyRed),
           darkTheme: FlexThemeData.dark(scheme: FlexScheme.mandyRed),
-          themeMode: appConfigProvider.isDarkTheme ? ThemeMode.dark : ThemeMode.light,
+          themeMode: appConfigProvider.themeMode,
           localizationsDelegates: const [
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
