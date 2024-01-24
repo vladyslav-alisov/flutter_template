@@ -15,4 +15,9 @@ rename setBundleId --targets ios,android --value "com.newbundle.your"
 2) Change "name" in pubspec.yaml and refactor "package:template/" to "package:new_name/" 
    name: new_name
    description: "Your description here"
+3) Launch command:
+```
+flutter pub get
+```
 
+You are ready to go!
