@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:template/router/routes.dart';
 import 'package:template/view/home_screen/home_screen.dart';
 
 class AppRouter {
@@ -11,11 +12,11 @@ class AppRouter {
 
   static GoRouter initRouter() {
     _goRouter ??= GoRouter(
-      initialLocation: "/",
+      initialLocation: Routes.splashScreen.path,
       debugLogDiagnostics: true,
       routes: [
         GoRoute(
-          path: "/",
+          path: Routes.splashScreen.path,
           builder: (context, state) => const HomeScreen(),
         ),
       ],
