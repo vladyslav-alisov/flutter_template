@@ -37,3 +37,17 @@ flutter_icons:
 flutter pub get
 flutter pub run flutter_launcher_icons
 ```
+
+# Splash screen
+1) Put your image to "assets/images/your_splash.png"
+2) In flutter_native_splash.yaml
+Replace assets/images/your_splash.png
+```
+  # The image parameter allows you to specify an image used in the splash screen.  It must be a
+  # png file and should be sized for 4x pixel density.
+  image: assets/images/logo.png
+```
+3) Run command:
+```
+flutter pub run flutter_native_splash:create
+```
