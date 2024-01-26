@@ -24,8 +24,14 @@ You are ready to go!
 
 # Icons
 
-1) Put your label image to "assets/images/your_logo_image.png"
-2) In root folder in flutter_launcher_icons.yaml change "assets/images/logo.png" to "assets/images/your_logo_image.png"
+1) Put your image to "assets/images/your_logo_image.png"
+2) In pubspec.yaml 
+Replace "assets/images/logo.png" to "assets/images/your_logo_image.png"
+```
+flutter_icons:
+  image_path: "assets/images/logo.png"
+  android: "launcher_icon"
+```
 3) Run command:
 ```
 flutter pub get
