@@ -1,6 +1,6 @@
 # Flutter template with Provider, GoRouter, Isar DB and Dio packages.
 
-## To start
+# Naming
 
 Clone this project
 
@@ -12,15 +12,16 @@ dart pub global activate rename
 rename setAppName --targets ios,android --value "YourAppName"
 rename setBundleId --targets ios,android --value "com.newbundle.your"
 ```
-2) Change "name" in pubspec.yaml and refactor "package:template/" to "package:new_name/" 
-   name: new_name
-   description: "Your description here"
-3) Run command:
+2) Change "name" in pubspec.yaml
+```
+name: new_name
+description: "Your description here"
+```
+3) Refactor "package:template/" to "package:new_name/" all over the project
+4) Run command:
 ```
 flutter pub get
 ```
-
-You are ready to go!
 
 # Icons
 
