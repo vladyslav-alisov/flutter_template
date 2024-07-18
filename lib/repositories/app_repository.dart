@@ -1,27 +1,32 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:template/api/local/database/app_config_api/app_config_db_entity.dart';
-import 'package:template/api/local/database/app_config_api/app_config_db_service.dart';
+import 'package:template/api/database/app_config_api/app_config_entity.dart';
+import 'package:template/api/database/app_config_api/app_config_dao.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:template/api/local/database/app_info_api/app_info_db_entity.dart';
-import 'package:template/api/local/database/app_info_api/app_info_db_service.dart';
+import 'package:template/api/database/app_info_api/app_info_entity.dart';
+import 'package:template/api/database/app_info_api/app_info_dao.dart';
+import 'package:template/api/database/database_client.dart';
 import 'package:template/models/app_config/app_config.dart';
 import 'package:template/models/app_config/app_config_mapper.dart';
 import 'package:template/models/app_info/index.dart';
 
 class AppRepository {
-  AppRepository(this._appConfigDBService, this._appInfoDBService);
+  AppRepository(DatabaseClient dbClient) {
+    _appConfigDao = dbClient.appConfigDao;
+    _appInfoDao = dbClient.appInfoDao;
+  }
 
-  final AppConfigDBService _appConfigDBService;
-  final AppInfoDBService _appInfoDBService;
+  final AppConfigMapper _appConfigMapper = AppConfigMapper();
+
+  late final AppConfigDao _appConfigDao;
+  late final AppInfoDao _appInfoDao;
 
   Future<AppConfig> getAppConfig() async {
-    AppConfigDBEntity? appConfigDBEntity = await _appConfigDBService.getAppConfig();
+    AppConfigEntity? appConfigDBEntity = await _appConfigDao.getAppConfig();
     if (appConfigDBEntity != null) {
-      return AppConfigMapper.fromAppConfigDBEntityToAppConfig(appConfigDBEntity);
+      return _appConfigMapper.entityToModel(appConfigDBEntity);
     } else {
       Locale initLocale = _getInitLocale();
       ThemeMode themeMode = ThemeMode.system;
@@ -40,23 +45,23 @@ class AppRepository {
   }
 
   Future<AppConfig> updateAppConfig(AppConfig appConfig) async {
-    AppConfigDBEntity appConfigDBEntity = AppConfigMapper.fromAppConfigToAppConfigDBEntity(appConfig);
-    await _appConfigDBService.deleteAllConfigEntity();
-    await _appConfigDBService.saveAppConfig(appConfigDBEntity);
+    AppConfigEntity appConfigDBEntity = _appConfigMapper.modelToEntity(appConfig);
+    await _appConfigDao.deleteAllConfigEntity();
+    await _appConfigDao.saveAppConfig(appConfigDBEntity);
     return appConfig;
   }
 
   Future<AppInfo> getAppInfo() async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
-    AppInfoDBEntity? appVersion = await _appInfoDBService.getAppInfo();
+    AppInfoEntity? appVersion = await _appInfoDao.getAppInfo();
     if (appVersion != null && appVersion.version == packageInfo.version) {
-      AppInfo saveAppInfo = AppInfoMapper.fromAppInfoDBEntityToAppInfo(appVersion);
+      AppInfo saveAppInfo = AppInfoMapper.entityToModel(appVersion);
       return saveAppInfo;
     } else {
-      AppInfo updatedAppInfo = AppInfoMapper.fromPackageInfoToAppInfo(packageInfo, DateTime.now());
-      AppInfoDBEntity updatedAppInfoDBEntity = AppInfoMapper.fromAppInfoToAppInfoDBEntity(updatedAppInfo);
-      if (appVersion != null) await _appInfoDBService.deleteAllConfigEntity();
-      await _appInfoDBService.saveAppInfo(updatedAppInfoDBEntity);
+      AppInfo updatedAppInfo = AppInfoMapper.dtoToModel(packageInfo);
+      AppInfoEntity updatedAppInfoDBEntity = AppInfoMapper.modelToEntity(updatedAppInfo);
+      if (appVersion != null) await _appInfoDao.deleteAllConfigEntity();
+      await _appInfoDao.saveAppInfo(updatedAppInfoDBEntity);
       return updatedAppInfo;
     }
   }

@@ -1,20 +1,21 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'i_storage_client.dart';
+import 'i_secure_storage_client.dart';
 
-class StorageClient implements IStorageClient {
-  static StorageClient? _instance;
+class SecureStorageClient implements ISecureStorageClient {
+  static SecureStorageClient? _instance;
 
-  StorageClient._(this._prefs);
+  SecureStorageClient._(this._prefs);
 
   final SharedPreferences _prefs;
 
-  static StorageClient get instance => _instance != null ? _instance! : throw Exception("Initialize storage first!");
+  static SecureStorageClient get instance =>
+      _instance != null ? _instance! : throw Exception("Initialize storage first!");
 
-  static Future<IStorageClient> initLocalStorage() async {
+  static Future<ISecureStorageClient> initSecureStorage() async {
     if (_instance == null) {
       SharedPreferences preferences = await SharedPreferences.getInstance();
-      _instance = StorageClient._(preferences);
+      _instance = SecureStorageClient._(preferences);
     }
     return _instance!;
   }

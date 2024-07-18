@@ -1,4 +1,4 @@
-class QuoteNetworkEntity {
+class QuoteDto {
   int id;
   Originator originator;
   String languageCode;
@@ -6,7 +6,7 @@ class QuoteNetworkEntity {
   String url;
   List<String> tags;
 
-  QuoteNetworkEntity({
+  QuoteDto({
     required this.id,
     required this.originator,
     required this.languageCode,
@@ -15,7 +15,7 @@ class QuoteNetworkEntity {
     required this.tags,
   });
 
-  factory QuoteNetworkEntity.fromJson(Map<String, dynamic> json) => QuoteNetworkEntity(
+  factory QuoteDto.fromJson(Map<String, dynamic> json) => QuoteDto(
         id: json["id"],
         originator: Originator.fromJson(json["originator"]),
         languageCode: json["language_code"],

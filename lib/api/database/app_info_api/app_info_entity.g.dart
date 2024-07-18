@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'app_info_db_entity.dart';
+part of 'app_info_entity.dart';
 
 // **************************************************************************
 // IsarCollectionGenerator
@@ -9,13 +9,13 @@ part of 'app_info_db_entity.dart';
 // coverage:ignore-file
 // ignore_for_file: duplicate_ignore, non_constant_identifier_names, constant_identifier_names, invalid_use_of_protected_member, unnecessary_cast, prefer_const_constructors, lines_longer_than_80_chars, require_trailing_commas, inference_failure_on_function_invocation, unnecessary_parenthesis, unnecessary_raw_strings, unnecessary_null_checks, join_return_with_assignment, prefer_final_locals, avoid_js_rounded_ints, avoid_positional_boolean_parameters, always_specify_types
 
-extension GetAppInfoDBEntityCollection on Isar {
-  IsarCollection<AppInfoDBEntity> get appInfoDBEntitys => this.collection();
+extension GetAppInfoEntityCollection on Isar {
+  IsarCollection<AppInfoEntity> get appInfoEntitys => this.collection();
 }
 
-const AppInfoDBEntitySchema = CollectionSchema(
-  name: r'AppInfoDBEntity',
-  id: 5565835155413442332,
+const AppInfoEntitySchema = CollectionSchema(
+  name: r'AppInfoEntity',
+  id: 1337516825938634386,
   properties: {
     r'appName': PropertySchema(
       id: 0,
@@ -48,22 +48,22 @@ const AppInfoDBEntitySchema = CollectionSchema(
       type: IsarType.string,
     )
   },
-  estimateSize: _appInfoDBEntityEstimateSize,
-  serialize: _appInfoDBEntitySerialize,
-  deserialize: _appInfoDBEntityDeserialize,
-  deserializeProp: _appInfoDBEntityDeserializeProp,
+  estimateSize: _appInfoEntityEstimateSize,
+  serialize: _appInfoEntitySerialize,
+  deserialize: _appInfoEntityDeserialize,
+  deserializeProp: _appInfoEntityDeserializeProp,
   idName: r'localeId',
   indexes: {},
   links: {},
   embeddedSchemas: {},
-  getId: _appInfoDBEntityGetId,
-  getLinks: _appInfoDBEntityGetLinks,
-  attach: _appInfoDBEntityAttach,
+  getId: _appInfoEntityGetId,
+  getLinks: _appInfoEntityGetLinks,
+  attach: _appInfoEntityAttach,
   version: '3.1.0+1',
 );
 
-int _appInfoDBEntityEstimateSize(
-  AppInfoDBEntity object,
+int _appInfoEntityEstimateSize(
+  AppInfoEntity object,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
@@ -76,8 +76,8 @@ int _appInfoDBEntityEstimateSize(
   return bytesCount;
 }
 
-void _appInfoDBEntitySerialize(
-  AppInfoDBEntity object,
+void _appInfoEntitySerialize(
+  AppInfoEntity object,
   IsarWriter writer,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
@@ -90,13 +90,13 @@ void _appInfoDBEntitySerialize(
   writer.writeString(offsets[5], object.version);
 }
 
-AppInfoDBEntity _appInfoDBEntityDeserialize(
+AppInfoEntity _appInfoEntityDeserialize(
   Id id,
   IsarReader reader,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  final object = AppInfoDBEntity(
+  final object = AppInfoEntity(
     reader.readString(offsets[0]),
     reader.readString(offsets[4]),
     reader.readString(offsets[5]),
@@ -107,7 +107,7 @@ AppInfoDBEntity _appInfoDBEntityDeserialize(
   return object;
 }
 
-P _appInfoDBEntityDeserializeProp<P>(
+P _appInfoEntityDeserializeProp<P>(
   IsarReader reader,
   int propertyId,
   int offset,
@@ -131,30 +131,30 @@ P _appInfoDBEntityDeserializeProp<P>(
   }
 }
 
-Id _appInfoDBEntityGetId(AppInfoDBEntity object) {
+Id _appInfoEntityGetId(AppInfoEntity object) {
   return object.localeId;
 }
 
-List<IsarLinkBase<dynamic>> _appInfoDBEntityGetLinks(AppInfoDBEntity object) {
+List<IsarLinkBase<dynamic>> _appInfoEntityGetLinks(AppInfoEntity object) {
   return [];
 }
 
-void _appInfoDBEntityAttach(
-    IsarCollection<dynamic> col, Id id, AppInfoDBEntity object) {}
+void _appInfoEntityAttach(
+    IsarCollection<dynamic> col, Id id, AppInfoEntity object) {}
 
-extension AppInfoDBEntityQueryWhereSort
-    on QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QWhere> {
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterWhere> anyLocaleId() {
+extension AppInfoEntityQueryWhereSort
+    on QueryBuilder<AppInfoEntity, AppInfoEntity, QWhere> {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterWhere> anyLocaleId() {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(const IdWhereClause.any());
     });
   }
 }
 
-extension AppInfoDBEntityQueryWhere
-    on QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QWhereClause> {
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterWhereClause>
-      localeIdEqualTo(Id localeId) {
+extension AppInfoEntityQueryWhere
+    on QueryBuilder<AppInfoEntity, AppInfoEntity, QWhereClause> {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterWhereClause> localeIdEqualTo(
+      Id localeId) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(IdWhereClause.between(
         lower: localeId,
@@ -163,7 +163,7 @@ extension AppInfoDBEntityQueryWhere
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterWhereClause>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterWhereClause>
       localeIdNotEqualTo(Id localeId) {
     return QueryBuilder.apply(this, (query) {
       if (query.whereSort == Sort.asc) {
@@ -186,7 +186,7 @@ extension AppInfoDBEntityQueryWhere
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterWhereClause>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterWhereClause>
       localeIdGreaterThan(Id localeId, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(
@@ -195,7 +195,7 @@ extension AppInfoDBEntityQueryWhere
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterWhereClause>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterWhereClause>
       localeIdLessThan(Id localeId, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(
@@ -204,8 +204,7 @@ extension AppInfoDBEntityQueryWhere
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterWhereClause>
-      localeIdBetween(
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterWhereClause> localeIdBetween(
     Id lowerLocaleId,
     Id upperLocaleId, {
     bool includeLower = true,
@@ -222,9 +221,9 @@ extension AppInfoDBEntityQueryWhere
   }
 }
 
-extension AppInfoDBEntityQueryFilter
-    on QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QFilterCondition> {
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+extension AppInfoEntityQueryFilter
+    on QueryBuilder<AppInfoEntity, AppInfoEntity, QFilterCondition> {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       appNameEqualTo(
     String value, {
     bool caseSensitive = true,
@@ -238,7 +237,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       appNameGreaterThan(
     String value, {
     bool include = false,
@@ -254,7 +253,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       appNameLessThan(
     String value, {
     bool include = false,
@@ -270,7 +269,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       appNameBetween(
     String lower,
     String upper, {
@@ -290,7 +289,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       appNameStartsWith(
     String value, {
     bool caseSensitive = true,
@@ -304,7 +303,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       appNameEndsWith(
     String value, {
     bool caseSensitive = true,
@@ -318,7 +317,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       appNameContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
@@ -329,7 +328,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       appNameMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
@@ -340,7 +339,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       appNameIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -350,7 +349,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       appNameIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
@@ -360,7 +359,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildNumberEqualTo(
     String value, {
     bool caseSensitive = true,
@@ -374,7 +373,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildNumberGreaterThan(
     String value, {
     bool include = false,
@@ -390,7 +389,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildNumberLessThan(
     String value, {
     bool include = false,
@@ -406,7 +405,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildNumberBetween(
     String lower,
     String upper, {
@@ -426,7 +425,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildNumberStartsWith(
     String value, {
     bool caseSensitive = true,
@@ -440,7 +439,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildNumberEndsWith(
     String value, {
     bool caseSensitive = true,
@@ -454,7 +453,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildNumberContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
@@ -465,7 +464,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildNumberMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
@@ -476,7 +475,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildNumberIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -486,7 +485,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildNumberIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
@@ -496,7 +495,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildSignatureEqualTo(
     String value, {
     bool caseSensitive = true,
@@ -510,7 +509,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildSignatureGreaterThan(
     String value, {
     bool include = false,
@@ -526,7 +525,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildSignatureLessThan(
     String value, {
     bool include = false,
@@ -542,7 +541,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildSignatureBetween(
     String lower,
     String upper, {
@@ -562,7 +561,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildSignatureStartsWith(
     String value, {
     bool caseSensitive = true,
@@ -576,7 +575,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildSignatureEndsWith(
     String value, {
     bool caseSensitive = true,
@@ -590,7 +589,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildSignatureContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
@@ -601,7 +600,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildSignatureMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
@@ -612,7 +611,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildSignatureIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -622,7 +621,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       buildSignatureIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
@@ -632,7 +631,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       lastUpdatedEqualTo(DateTime value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -642,7 +641,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       lastUpdatedGreaterThan(
     DateTime value, {
     bool include = false,
@@ -656,7 +655,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       lastUpdatedLessThan(
     DateTime value, {
     bool include = false,
@@ -670,7 +669,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       lastUpdatedBetween(
     DateTime lower,
     DateTime upper, {
@@ -688,7 +687,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       localeIdEqualTo(Id value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -698,7 +697,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       localeIdGreaterThan(
     Id value, {
     bool include = false,
@@ -712,7 +711,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       localeIdLessThan(
     Id value, {
     bool include = false,
@@ -726,7 +725,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       localeIdBetween(
     Id lower,
     Id upper, {
@@ -744,7 +743,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       packageNameEqualTo(
     String value, {
     bool caseSensitive = true,
@@ -758,7 +757,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       packageNameGreaterThan(
     String value, {
     bool include = false,
@@ -774,7 +773,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       packageNameLessThan(
     String value, {
     bool include = false,
@@ -790,7 +789,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       packageNameBetween(
     String lower,
     String upper, {
@@ -810,7 +809,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       packageNameStartsWith(
     String value, {
     bool caseSensitive = true,
@@ -824,7 +823,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       packageNameEndsWith(
     String value, {
     bool caseSensitive = true,
@@ -838,7 +837,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       packageNameContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
@@ -849,7 +848,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       packageNameMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
@@ -860,7 +859,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       packageNameIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -870,7 +869,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       packageNameIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
@@ -880,7 +879,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       versionEqualTo(
     String value, {
     bool caseSensitive = true,
@@ -894,7 +893,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       versionGreaterThan(
     String value, {
     bool include = false,
@@ -910,7 +909,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       versionLessThan(
     String value, {
     bool include = false,
@@ -926,7 +925,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       versionBetween(
     String lower,
     String upper, {
@@ -946,7 +945,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       versionStartsWith(
     String value, {
     bool caseSensitive = true,
@@ -960,7 +959,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       versionEndsWith(
     String value, {
     bool caseSensitive = true,
@@ -974,7 +973,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       versionContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
@@ -985,7 +984,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       versionMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
@@ -996,7 +995,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       versionIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -1006,7 +1005,7 @@ extension AppInfoDBEntityQueryFilter
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterFilterCondition>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterFilterCondition>
       versionIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
@@ -1017,213 +1016,202 @@ extension AppInfoDBEntityQueryFilter
   }
 }
 
-extension AppInfoDBEntityQueryObject
-    on QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QFilterCondition> {}
+extension AppInfoEntityQueryObject
+    on QueryBuilder<AppInfoEntity, AppInfoEntity, QFilterCondition> {}
 
-extension AppInfoDBEntityQueryLinks
-    on QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QFilterCondition> {}
+extension AppInfoEntityQueryLinks
+    on QueryBuilder<AppInfoEntity, AppInfoEntity, QFilterCondition> {}
 
-extension AppInfoDBEntityQuerySortBy
-    on QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QSortBy> {
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy> sortByAppName() {
+extension AppInfoEntityQuerySortBy
+    on QueryBuilder<AppInfoEntity, AppInfoEntity, QSortBy> {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy> sortByAppName() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'appName', Sort.asc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
-      sortByAppNameDesc() {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy> sortByAppNameDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'appName', Sort.desc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
-      sortByBuildNumber() {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy> sortByBuildNumber() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'buildNumber', Sort.asc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy>
       sortByBuildNumberDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'buildNumber', Sort.desc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy>
       sortByBuildSignature() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'buildSignature', Sort.asc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy>
       sortByBuildSignatureDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'buildSignature', Sort.desc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
-      sortByLastUpdated() {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy> sortByLastUpdated() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'lastUpdated', Sort.asc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy>
       sortByLastUpdatedDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'lastUpdated', Sort.desc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
-      sortByPackageName() {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy> sortByPackageName() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'packageName', Sort.asc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy>
       sortByPackageNameDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'packageName', Sort.desc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy> sortByVersion() {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy> sortByVersion() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'version', Sort.asc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
-      sortByVersionDesc() {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy> sortByVersionDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'version', Sort.desc);
     });
   }
 }
 
-extension AppInfoDBEntityQuerySortThenBy
-    on QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QSortThenBy> {
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy> thenByAppName() {
+extension AppInfoEntityQuerySortThenBy
+    on QueryBuilder<AppInfoEntity, AppInfoEntity, QSortThenBy> {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy> thenByAppName() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'appName', Sort.asc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
-      thenByAppNameDesc() {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy> thenByAppNameDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'appName', Sort.desc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
-      thenByBuildNumber() {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy> thenByBuildNumber() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'buildNumber', Sort.asc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy>
       thenByBuildNumberDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'buildNumber', Sort.desc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy>
       thenByBuildSignature() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'buildSignature', Sort.asc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy>
       thenByBuildSignatureDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'buildSignature', Sort.desc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
-      thenByLastUpdated() {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy> thenByLastUpdated() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'lastUpdated', Sort.asc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy>
       thenByLastUpdatedDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'lastUpdated', Sort.desc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
-      thenByLocaleId() {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy> thenByLocaleId() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'localeId', Sort.asc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy>
       thenByLocaleIdDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'localeId', Sort.desc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
-      thenByPackageName() {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy> thenByPackageName() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'packageName', Sort.asc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy>
       thenByPackageNameDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'packageName', Sort.desc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy> thenByVersion() {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy> thenByVersion() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'version', Sort.asc);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QAfterSortBy>
-      thenByVersionDesc() {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QAfterSortBy> thenByVersionDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'version', Sort.desc);
     });
   }
 }
 
-extension AppInfoDBEntityQueryWhereDistinct
-    on QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QDistinct> {
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QDistinct> distinctByAppName(
+extension AppInfoEntityQueryWhereDistinct
+    on QueryBuilder<AppInfoEntity, AppInfoEntity, QDistinct> {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QDistinct> distinctByAppName(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'appName', caseSensitive: caseSensitive);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QDistinct>
-      distinctByBuildNumber({bool caseSensitive = true}) {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QDistinct> distinctByBuildNumber(
+      {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'buildNumber', caseSensitive: caseSensitive);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QDistinct>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QDistinct>
       distinctByBuildSignature({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'buildSignature',
@@ -1231,21 +1219,21 @@ extension AppInfoDBEntityQueryWhereDistinct
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QDistinct>
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QDistinct>
       distinctByLastUpdated() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'lastUpdated');
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QDistinct>
-      distinctByPackageName({bool caseSensitive = true}) {
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QDistinct> distinctByPackageName(
+      {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'packageName', caseSensitive: caseSensitive);
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QDistinct> distinctByVersion(
+  QueryBuilder<AppInfoEntity, AppInfoEntity, QDistinct> distinctByVersion(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'version', caseSensitive: caseSensitive);
@@ -1253,49 +1241,47 @@ extension AppInfoDBEntityQueryWhereDistinct
   }
 }
 
-extension AppInfoDBEntityQueryProperty
-    on QueryBuilder<AppInfoDBEntity, AppInfoDBEntity, QQueryProperty> {
-  QueryBuilder<AppInfoDBEntity, int, QQueryOperations> localeIdProperty() {
+extension AppInfoEntityQueryProperty
+    on QueryBuilder<AppInfoEntity, AppInfoEntity, QQueryProperty> {
+  QueryBuilder<AppInfoEntity, int, QQueryOperations> localeIdProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'localeId');
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, String, QQueryOperations> appNameProperty() {
+  QueryBuilder<AppInfoEntity, String, QQueryOperations> appNameProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'appName');
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, String, QQueryOperations>
-      buildNumberProperty() {
+  QueryBuilder<AppInfoEntity, String, QQueryOperations> buildNumberProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'buildNumber');
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, String, QQueryOperations>
+  QueryBuilder<AppInfoEntity, String, QQueryOperations>
       buildSignatureProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'buildSignature');
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, DateTime, QQueryOperations>
+  QueryBuilder<AppInfoEntity, DateTime, QQueryOperations>
       lastUpdatedProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'lastUpdated');
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, String, QQueryOperations>
-      packageNameProperty() {
+  QueryBuilder<AppInfoEntity, String, QQueryOperations> packageNameProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'packageName');
     });
   }
 
-  QueryBuilder<AppInfoDBEntity, String, QQueryOperations> versionProperty() {
+  QueryBuilder<AppInfoEntity, String, QQueryOperations> versionProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'version');
     });

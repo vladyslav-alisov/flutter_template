@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
-part 'app_config_db_entity.g.dart';
+part 'app_config_entity.g.dart';
 
 @collection
-class AppConfigDBEntity {
+class AppConfigEntity {
   final Id localeId = Isar.autoIncrement;
   final String languageCode;
   final String? countryCode;
@@ -11,5 +11,5 @@ class AppConfigDBEntity {
   @enumerated
   final ThemeMode themeMode;
 
-  AppConfigDBEntity(this.languageCode, this.countryCode, this.isFirstLaunch, this.themeMode);
+  AppConfigEntity(this.languageCode, this.countryCode, this.isFirstLaunch, this.themeMode);
 }

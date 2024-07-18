@@ -6,12 +6,11 @@ import 'package:template/models/app_info/app_info.dart';
 import 'package:template/providers/app_provider.dart';
 import 'package:template/repositories/app_repository.dart';
 import 'package:template/router/app_router.dart';
-import 'home_screen/home_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
-class MyApp extends StatefulWidget {
-  const MyApp({
+class App extends StatelessWidget {
+  const App({
     super.key,
     required this.initConfig,
     required this.appInfo,
@@ -21,20 +20,16 @@ class MyApp extends StatefulWidget {
   final AppConfig initConfig;
   final AppInfo appInfo;
   final AppRepository appRepository;
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
 
-class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<AppProvider>(
           create: (_) => AppProvider(
-            widget.initConfig,
-            widget.appInfo,
-            widget.appRepository,
+            initConfig,
+            appInfo,
+            appRepository,
           ),
         ),
       ],

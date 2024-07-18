@@ -3,6 +3,7 @@ import 'package:template/utils/app_env.dart';
 
 class QuotesApiClient {
   QuotesApiClient._();
+
   static final QuotesApiClient instance = QuotesApiClient._();
 
   static const Duration _connectTimeout = Duration(seconds: 25);

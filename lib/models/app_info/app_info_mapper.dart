@@ -1,38 +1,38 @@
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:template/api/local/database/app_info_api/app_info_db_entity.dart';
+import 'package:template/api/database/app_info_api/app_info_entity.dart';
 import 'package:template/models/app_info/app_info.dart';
 
 class AppInfoMapper {
-  static AppInfo fromPackageInfoToAppInfo(PackageInfo packageInfo, DateTime lastUpdated) {
+  static AppInfo dtoToModel(PackageInfo packageInfo) {
     return AppInfo(
       packageInfo.appName,
       packageInfo.packageName,
       packageInfo.version,
       packageInfo.buildNumber,
       packageInfo.buildSignature,
-      lastUpdated,
+      DateTime.now(),
     );
   }
 
-  static AppInfoDBEntity fromAppInfoToAppInfoDBEntity(AppInfo appInfo) {
-    return AppInfoDBEntity(
-      appInfo.appName,
-      appInfo.packageName,
-      appInfo.version,
-      appInfo.buildNumber,
-      appInfo.buildSignature,
-      appInfo.lastUpdated,
+  static AppInfoEntity modelToEntity(AppInfo model) {
+    return AppInfoEntity(
+      model.appName,
+      model.packageName,
+      model.version,
+      model.buildNumber,
+      model.buildSignature,
+      model.lastUpdated,
     );
   }
 
-  static AppInfo fromAppInfoDBEntityToAppInfo(AppInfoDBEntity appInfoDBEntity) {
+  static AppInfo entityToModel(AppInfoEntity entity) {
     return AppInfo(
-      appInfoDBEntity.appName,
-      appInfoDBEntity.packageName,
-      appInfoDBEntity.version,
-      appInfoDBEntity.buildNumber,
-      appInfoDBEntity.buildSignature,
-      appInfoDBEntity.lastUpdated,
+      entity.appName,
+      entity.packageName,
+      entity.version,
+      entity.buildNumber,
+      entity.buildSignature,
+      entity.lastUpdated,
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:isar/isar.dart';
-part 'app_info_db_entity.g.dart';
+part 'app_info_entity.g.dart';
 
 @collection
-class AppInfoDBEntity {
+class AppInfoEntity {
   final Id localeId = Isar.autoIncrement;
   final String appName;
   final String packageName;
@@ -11,7 +11,7 @@ class AppInfoDBEntity {
   final String buildSignature;
   final DateTime lastUpdated;
 
-  AppInfoDBEntity(
+  AppInfoEntity(
     this.appName,
     this.packageName,
     this.version,
